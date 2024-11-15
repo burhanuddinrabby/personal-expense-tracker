@@ -19,7 +19,14 @@ export const GlobalProvider = ({children}) => {
     const addIncome = async (income) => {
         // eslint-disable-next-line no-unused-vars
         // const response = await axios.post(`${BASE_URL}add-income`, income)
+        let id;
         const prv = JSON.parse(localStorage.getItem('incomes'))
+        if(prv?.length > 0){
+            id = prv[prv.length - 1].id + 1
+        }else{
+            id = 1
+        }
+        income.id = id;
         try {
             localStorage.setItem('incomes', JSON.stringify([...prv, income]))
         } catch (error) {
@@ -31,19 +38,25 @@ export const GlobalProvider = ({children}) => {
             // .catch((err) =>{
             //     setError(err.response.data.message)
             // })
-        // getIncomes()
+        getIncomes()
     }
 
     const getIncomes = async () => {
         // const response = await axios.get(`${BASE_URL}get-incomes`)
         setIncomes(JSON.parse(localStorage.getItem('incomes')));
-        // setIncomes(response.data)
-        // console.log(response.data)
     }
 
     const deleteIncome = async (id) => {
         // const res  = await axios.delete(`${BASE_URL}delete-income/${id}`)
-        const res  = localStorage.removeItem('incomes')
+        const a = JSON.parse(localStorage.getItem("incomes"));
+        const b = [];
+        for (let i = 0; i < a.length; i++) {
+          if (a[i].id == id) {
+            continue;
+          }
+          b.push(a[i]);
+        }
+        localStorage.setItem("expenses", JSON.stringify(b));
         getIncomes()
     }
 
@@ -60,7 +73,16 @@ export const GlobalProvider = ({children}) => {
     //calculate incomes
     const addExpense = async (income) => {
         // const response = await axios.post(`${BASE_URL}add-expense`, income)
+        
+        let id;
         const prv = JSON.parse(localStorage.getItem("expenses"));
+        if (prv?.length > 0) {
+          id = prv[prv.length - 1].id + 1;
+        } else {
+          id = 1;
+        }
+        income.id = id;
+
         try {
           localStorage.setItem("expenses", JSON.stringify([...prv, income]));
         } catch (error) {
@@ -73,7 +95,7 @@ export const GlobalProvider = ({children}) => {
             // .catch((err) =>{
             //     setError(err.response.data.message)
             // })
-        // getExpenses()
+        getExpenses()
     }
 
     const getExpenses = async () => {
@@ -85,7 +107,16 @@ export const GlobalProvider = ({children}) => {
 
     const deleteExpense = async (id) => {
         // const res  = await axios.delete(`${BASE_URL}delete-expense/${id}`)
-        const res  = localStorage.removeItem('expenses')
+        // const res  = localStorage.removeItem('expenses')
+        const a = JSON.parse(localStorage.getItem("expenses"));
+        const b = [];
+        for (let i = 0; i < a.length; i++) {
+          if (a[i].id == id) {
+            continue;
+          }
+          b.push(a[i]);
+        }
+        localStorage.setItem("expenses", JSON.stringify(b));
         getExpenses()
     }
 

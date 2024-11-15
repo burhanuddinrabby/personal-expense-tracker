@@ -19,6 +19,7 @@ function Form() {
     })
 
     const { title, amount, date, category,description } = inputState;
+    // console.log(inputState.amount);
 
     const handleInput = name => e => {
         setInputState({...inputState, [name]: e.target.value})
@@ -27,8 +28,9 @@ function Form() {
 
     const handleSubmit = e => {
         e.preventDefault()
-        // console.log(localStorage.setItem('incomes', JSON.stringify(inputState)));
-        // console.log(localStorage.getItem('incomes'));
+        inputState.amount = parseInt(inputState.amount)
+        // //console.log(localStorage.setItem('incomes', JSON.stringify(inputState)));
+        // //console.log(localStorage.getItem('incomes'));
         addIncome(inputState)
         // setInputState({
         //     title: '',
