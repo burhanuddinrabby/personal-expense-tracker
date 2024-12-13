@@ -32,16 +32,17 @@ function Chart() {
 
     const data = {
         labels: "January February March April May June July August September October November December".split(" ").map((month) => {
-            return incomes.map(inc => {
-                const {date} = inc;
-                return dateFormat(date)
-            })
+            // return incomes.map(inc => {
+            //     const {date} = inc;
+            //     return dateFormat(date)
+            // })
+            return month;
         }),
         datasets: [
             {
                 label: 'Income',
                 data: [
-                    incomes ? incomes?.map((income) => income.amount) : 0
+                    incomes?.map((income) => income.amount)
                 ],
                 backgroundColor: 'green',
                 tension: .2
@@ -49,10 +50,7 @@ function Chart() {
             {
                 label: 'Expenses',
                 data: [
-                    expenses ? expenses.map((expense) => {
-                        const {amount} = expense
-                        return amount
-                    }) : [0]
+                    expenses ? expenses.map((expense) => expense.amount) : [0]
                 ],
                 backgroundColor: 'red',
                 tension: .2

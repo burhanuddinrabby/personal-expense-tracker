@@ -13,6 +13,7 @@ function ExpenseForm() {
         title: '',
         amount: '',
         date: '',
+        type: 'expense',
         category: '',
         description: '',
     })

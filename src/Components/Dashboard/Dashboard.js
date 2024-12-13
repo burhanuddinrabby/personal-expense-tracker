@@ -50,13 +50,13 @@ function Dashboard() {
               </h2>
               <div className="salary-item">
                 <p>
-                  $
+                  {dollar} &nbsp;
                   { incomes
                     ? Math.min(...(incomes?.map((item) => item?.amount)))
                     : 0}
                 </p>
                 <p>
-                  $
+                  {dollar} &nbsp;
                   { incomes
                     ? Math.max(...(incomes?.map((item) => item?.amount)))
                     : 0}
@@ -67,13 +67,13 @@ function Dashboard() {
               </h2>
               <div className="salary-item">
                 <p>
-                  $
+                  {dollar} &nbsp;
                   { expenses
                     ? Math.min(...(expenses?.map((item) => item?.amount)))
                     : 0}
                 </p>
                 <p>
-                  $
+                  {dollar} &nbsp;
                   { expenses
                     ? Math.max(...(expenses?.map((item) => item?.amount)))
                     : 0}

@@ -1,11 +1,11 @@
 import React, {useState, useMemo} from 'react'
 import styled from "styled-components";
-import bg from './img/bg.png'
-import {MainLayout} from './styles/Layouts'
-import Orb from './Components/Orb/Orb'
-import Navigation from './Components/Navigation/Navigation'
+import bg from './img/bg.png';
+import {MainLayout} from './styles/Layouts';
+import Orb from './Components/Orb/Orb';
+import Navigation from './Components/Navigation/Navigation';
 import Dashboard from './Components/Dashboard/Dashboard';
-import Income from './Components/Income/Income'
+import Income from './Components/Income/Income';
 import Expenses from './Components/Expenses/Expenses';
 import { useGlobalContext } from './context/globalContext';
 import Transaction from './Components/Transactions/Transaction';
@@ -13,6 +13,7 @@ import Transaction from './Components/Transactions/Transaction';
 function App() {
   const [active, setActive] = useState(1)
 
+  // eslint-disable-next-line no-unused-vars
   const global = useGlobalContext()
   // //console.log(global);
 

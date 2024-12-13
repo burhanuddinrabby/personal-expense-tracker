@@ -5,12 +5,12 @@ import { useGlobalContext } from '../context/globalContext';
 function History() {
     const {transactionHistory} = useGlobalContext()
 
-    const [...history] = transactionHistory()
+    const [...history] = transactionHistory();
 
     return (
         <HistoryStyled>
-            <h2>Recent History</h2>
-            {history.map((item) =>{
+            <h3>Recent 3 Histories</h3>
+            {history.slice(0,3).map((item) =>{
                 const {_id, title, amount, type} = item
                 return (
                     <div key={_id} className="history-item">

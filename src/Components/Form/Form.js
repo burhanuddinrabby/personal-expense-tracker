@@ -13,6 +13,7 @@ function Form() {
     const [inputState, setInputState] = useState({
         title: '',
         amount: '',
+        type: 'income',
         date: '',
         category: '',
         description: '',
